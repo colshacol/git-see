@@ -1,0 +1,39 @@
+$rows = row, row-reverse;
+$columns = column, column-reverse;
+
+fixFlexValue($value) {
+  $values = start, end;
+  if $value in $values {
+    return 'flex-%s' % $value;
+  } else {
+    return $value;
+  }
+}
+
+layout($dir, $inline = null) {
+  display: flex;
+  flex-direction: $dir;
+
+  $rowDirs = row, row-reverse;
+  $colDirs = column, column-reverse;
+}
+
+x-align($alignment) {
+  $value = fixFlexValue($alignment);
+  $dir = @flex-direction;
+  if $dir in $rows {
+    justify-content: $value;
+  } else if $dir in $columns {
+    align-items: $value;
+  }
+}
+
+y-align($alignment) {
+  $value = fixFlexValue($alignment);
+  $dir = @flex-direction;
+  if $dir in $rows {
+    align-items: $value;
+  } else if $dir in $columns {
+    justify-content: $value;
+  }
+}
