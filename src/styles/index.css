@@ -1,0 +1,21 @@
+@import './vars.css';
+@import './type.css';
+
+html, body, div, header, footer, nav, aside, section {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  font-family: var(--primary-font);
+  background: #f2f2f2;
+  letter-spacing: 0.5px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--secondary-font);
+}

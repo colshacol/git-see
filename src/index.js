@@ -4,11 +4,10 @@ import React from "react";
 import ReactDOM from "react-dom";
 import Home from "./scenes/Home";
 import AppFrame from "./AppFrame";
-import "./styles/index.styl";
+require("./styles/index.css");
 
 ReactDOM.render(
   <div className="GitSee">
-    {/*<Navbar/>*/}
     <Router history={browserHistory}>
       <Route path="/" component={AppFrame}>
         <IndexRoute component={Home}/>

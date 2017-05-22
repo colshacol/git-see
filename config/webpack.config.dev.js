@@ -178,7 +178,7 @@ module.exports = {
       // In production, we use a plugin to extract that CSS to a file, but
       // in development "style" loader enables hot editing of CSS.
       {
-        test: /\.styl$/,
+        test: /\.css$/,
         use: [
           require.resolve('style-loader'),
           {
@@ -203,11 +203,6 @@ module.exports = {
                   flexbox: 'no-2009',
                 }),
               ],
-            },
-          }, {
-            loader: require.resolve('stylus-loader'),
-            options: {
-              import: 'src/styles/globa.styl',
             },
           },
         ],
