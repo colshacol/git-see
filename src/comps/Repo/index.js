@@ -15,15 +15,20 @@ export default class Repo extends Component {
   };
 
   render({ props, state } = this) {
+    console.log('repo props: ', Object.keys(props));
+    const { currentStats } = props;
+    const { yesterday } = props;
+    const { pastWeek } = props;
+    const { pastMonth } = props;
+    const { averages } = props;
     return (
       <div className="Repo">
         <div className="RepoTop">
-          <h2 className="RepoTitle">vuejs / <span>vue</span></h2>
-          <CurrentStats
-            currentStars={87654}
-            currentForks={32123}
-            currentWatchers={22158}
-          />
+          <h2 className="RepoTitle">
+            <Icon name='github' className='RepoTitleGithubIcon'/>
+            {props.owner} / <span>{props.reponame}</span>
+          </h2>
+          <CurrentStats {...currentStats} />
         </div>
         <div className="RepoBottom">
           <div className="RepoColumnLabels">
@@ -32,24 +37,10 @@ export default class Repo extends Component {
             <Icon name="code-fork" className="RepoRowLabel" />
             <Icon name="eye" className="RepoRowLabel" />
           </div>
-          <RepoStatRow
-            timeFrame="Yesterday"
-            stars={"99"}
-            forks={"22"}
-            watchers={"19"}
-          />
-          <RepoStatRow
-            timeFrame="Past Week"
-            stars={"879"}
-            forks={"155"}
-            watchers={"124"}
-          />
-          <RepoStatRow
-            timeFrame="Past Month"
-            stars={"11,980"}
-            forks={"1,098"}
-            watchers={"963"}
-          />
+          <RepoStatRow timeFrame="Average Day" {...averages} />
+          <RepoStatRow timeFrame="Yesterday" {...yesterday} />
+          <RepoStatRow timeFrame="Past Week" {...pastWeek} />
+          <RepoStatRow timeFrame="Past Month" {...pastMonth} />
           <div className="RepoViewSwapper">
             <p>Switch to chart view</p>
           </div>

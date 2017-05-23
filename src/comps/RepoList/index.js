@@ -5,12 +5,10 @@ import './styles/index.css'
 
 export default class RepoList extends Component {
   state = {
-    repos: [0]
+    repos: []
   };
 
   addRepo = (data) => {
-    // Add a repo to the list.
-    console.log('Adding?')
     this.setState(({ repos }) => ({
       repos: [ ...repos, data ]
     }))
@@ -25,7 +23,7 @@ export default class RepoList extends Component {
     return (
       <div className='RepoList'>
         {state.repos.map(repo => (
-          <Repo/>
+          <Repo {...repo} />
         ))}
         <RepoAdder addRepo={this.addRepo}/>
       </div>

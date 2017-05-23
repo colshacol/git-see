@@ -18,7 +18,11 @@
   align-items: center;
 }
 
-
+.RepoTitleGithubIcon {
+  margin-right: 8px;
+  position: relative;
+  top: 2px;
+}
 
 .RepoStatRow {
   display: flex;

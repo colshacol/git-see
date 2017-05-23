@@ -9,15 +9,27 @@ export default class RepoAdder extends Component {
   };
 
   setStage = x => this.setState(({ stage }) => ({ stage: x }));
+  setInputValue = v => this.setState({ inputValue: v });
+
   updateInputValue = ({ target: { value } }) => {
-    this.setState({ inputValue: value });
-  }
+    this.setInputValue(value);
+  };
+
+  addRepo = async ({ owner, repo }) => {
+    this.setStage(0);
+    this.setInputValue("");
+    fetch(`http://localhost:3987/api/v1/repo/${this.state.inputValue}`)
+      .then(res => res.json())
+      .then(data => {
+        return this.props.addRepo(data);
+      }).catch(console.error);
+  };
 
   stageUp = () => {
-    if (this.state.stage === 0) { this.setStage(1) }
-    else if (this.state.stage === 1) {
-      this.props.addRepo();
+    if (this.state.stage === 0) {
       this.setStage(1);
+    } else if (this.state.stage === 1) {
+      this.addRepo({ owner: "a", repo: "b" });
     }
   };
 
