@@ -18,15 +18,7 @@
   align-items: center;
 }
 
-.RepoCurrentStats {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  width: 100%;
-  max-width: 300px;
-  padding: 8px 0;
-  font-family: var(--secondary-font);
-}
+
 
 .RepoStatRow {
   display: flex;
@@ -43,7 +35,7 @@
 }
 
 .RepoBottom {
-  padding: 8px;
+  padding: 24px 8px 8px 16px;
   background: var(--white);
 }
 
@@ -71,9 +63,6 @@
   width: 100%;
 }
 
-.RepoRowTimeframe {
-  opacity: 0.5;
-}
 
 .RepoViewSwapper p {
   font-size: 12px;

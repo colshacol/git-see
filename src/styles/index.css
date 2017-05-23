@@ -14,8 +14,17 @@ html, body, div, header, footer, nav, aside, section {
   font-family: var(--primary-font);
   background: #f2f2f2;
   letter-spacing: 0.5px;
+  color: var(--blue);
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--secondary-font);
+}
+
+nav {
+  background: #fff;
+  height: 50px;
+  padding: 0px 24px;
+  box-shadow: 0 2px 20px rgba(0,0,0,0.1),
+    0 1px 0px rgba(0,0,0,0.03);
 }

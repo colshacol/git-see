@@ -1,0 +1,8 @@
+.RepoList {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: calc(375px * 3);
+  margin: 0 auto;
+}
