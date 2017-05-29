@@ -1,0 +1,19 @@
+{
+  "plugins": [
+    ["flow-runtime", {
+      "assert": true,
+      "annotate": true
+    }],
+    "transform-decorators-legacy",
+    "transform-class-properties",
+    "react-html-attrs",
+    "jsx-control-statements", ["react-css-modules", {
+      "generateScopedName": "[path]___[name]-[local]_local"
+    }]
+  ],
+  "presets": [
+    "stage-0",
+    "es2015",
+    "react",
+  ]
+}

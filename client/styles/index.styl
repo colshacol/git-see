@@ -1,0 +1,56 @@
+@import './utils/vars.styl';
+@import './type.styl';
+
+html, body, div, header, footer, nav, aside, section {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  font-family: $primaryFont;
+  background: #f2f2f2;
+  letter-spacing: 0.5px;
+  color: $blue;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: $secondaryFont;
+}
+
+nav {
+  background: #fff;
+  height: 50px;
+  padding: 0px 24px;
+  box-shadow: 0 2px 20px rgba(0,0,0,0.1), 0 1px 0px rgba(0,0,0,0.03);
+}
+
+.Navbar {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+@media screen and (min-width: 1200px) {
+  .Navbar {
+    padding-left: calc((100% - 1200px) / 2 + 24px);
+    padding-right: calc((100% - 1200px) / 2 + 24px);
+  }
+}
+
+.NavbarLogo {
+  font-size: 20px;
+  font-family: $secondaryFont;
+  font-weight: 500;
+  color: $white;
+  background: $green;
+  height: 120%;
+  padding: 0 16px;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 2px 20px rgba(0,0,0,0.5), 0 1px 0px rgba(0,0,0,0.08);
+  border-bottom: 3px solid $darkGreen;
+}

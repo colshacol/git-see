@@ -1,0 +1,79 @@
+.Repo {
+  /*width: ?;*/
+  max-width: 340px;
+  display: inline-flex;
+  flex-direction: column;
+  margin: 24px 16px;
+  border-radius: 3px;
+  overflow: hidden;
+  background: $white;
+  box-shadow: 0 2px 20px rgba(0,0,0,0.1), 0 1px 0px rgba(0,0,0,0.03);
+}
+
+.RepoTop {
+  background: $green;
+  color: $green;
+  padding: 12px 0 4px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.RepoTitleGithubIcon {
+  margin-right: 8px;
+  position: relative;
+  top: 2px;
+}
+
+.RepoStatRow {
+  display: flex;
+  flex-direction: row;
+  padding: 4px 0;
+}
+
+.RepoTitle {
+  font-weight: 500;
+  color: $white;
+}
+
+.RepoTitle > span {
+  font-weight: 700;
+}
+
+.RepoBottom {
+  padding: 24px 8px 8px 16px;
+  background: $white;
+}
+
+.RepoColumnLabels {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 4px;
+  font-size: 14px;
+}
+
+.RepoTimeframeLabel,
+.RepoRowLabel {
+  opacity: 0.25;
+  font-style: italic;
+}
+
+.RepoRowLabel,
+.RepoRowStat {
+  width: 160px;
+  text-align: center;
+}
+
+.RepoTimeframeLabel,
+.RepoRowTimeframe {
+  width: 100%;
+}
+
+
+.RepoViewSwapper p {
+  font-size: 12px;
+  font-style: italic;
+  opacity: 0.25;
+  text-align: right;
+  margin: 8px 8px 2px;
+}
