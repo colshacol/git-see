@@ -1,7 +1,12 @@
-export const getRepo = async ({ owner, repo }) => {
-  fetch(`http://localhost:3987/api/v1/repo/${this.state.inputValue}`)
+export const getRepo = ({ repoStr }) => {
+  return fetch(`http://localhost:3987/api/v1/repo/${repoStr}`)
     .then(res => res.json())
     .then(data => {
       return data
-    }).catch(console.error);
+    }).catch(err => {
+      console.warn('Got no repo back: ', repoStr)
+      return {
+        _id: false
+      }
+    });
 };

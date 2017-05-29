@@ -3459,19 +3459,19 @@ mkdirp@0.5.x, "mkdirp@>=0.5 0", mkdirp@^0.5.0, mkdirp@^0.5.1, mkdirp@~0.5.0, mkd
   dependencies:
     minimist "0.0.8"
 
-mobx:
-  version "3.1.8"
-  resolved "https://registry.yarnpkg.com/mobx/-/mobx-3.1.8.tgz#94a24ce41baa9d0ccf3bd71b17dbe093bb0e1b05"
-
 mobx-devtools:
   version "0.0.7-alpha-8"
   resolved "https://registry.yarnpkg.com/mobx-devtools/-/mobx-devtools-0.0.7-alpha-8.tgz#a10ee7146371620814fb05598fa444bb4737cd70"
 
-mobx-react:
+mobx-react@^4.1.5:
   version "4.1.5"
   resolved "https://registry.yarnpkg.com/mobx-react/-/mobx-react-4.1.5.tgz#75cf4dbffc91b9cb23d56c060dfd8d2ca52450dc"
   dependencies:
     hoist-non-react-statics "^1.2.0"
+
+mobx@^3.1.8:
+  version "3.1.8"
+  resolved "https://registry.yarnpkg.com/mobx/-/mobx-3.1.8.tgz#94a24ce41baa9d0ccf3bd71b17dbe093bb0e1b05"
 
 mongodb-core@2.1.10:
   version "2.1.10"

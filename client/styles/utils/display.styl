@@ -1,0 +1,11 @@
+display($which) {
+  if ($which is flex-row) {
+    display: flex;
+    flex-direction: row;
+  } else if ($which is flex-column) {
+    display: flex;
+    flex-direction: column;
+  } else {
+    display: $which;
+  }
+}

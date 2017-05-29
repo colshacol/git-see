@@ -1,73 +1,65 @@
-import React, { Component } from "react";
-import { connect } from 'react-redux';
+import React, { Component } from "react"
+import { observer } from 'mobx-react'
 
-import { Icon } from "react-fa";
-import css from "./styles/RepoAdder.styl";
+import withStore from '@utils/withStore'
+import { RepoAdderStore } from './stores'
+import { Icon } from "react-fa"
+import css from "./styles/RepoAdder.styl"
 
-function RepoAdder(props) {
-  console.log(props, '......')
+const RepoAdder = observer(({ props, store }) => {
   return (
     <div className={css.RepoAdder}>
-      {!!(props.stage === 0) &&
-        <div className={css.RepoAdderStage0} onClick={props.stageUp}>
-          <Icon name="plus-circle" className={css.RepoAdderPlusIcon} />
+      {!!(store.stage === 0) &&
+        <div className={css.stage0} onClick={store.stageUp}>
+          <Icon name="plus-circle" className={css.plusIcon} />
           <p>Add a repo to compare.</p>
         </div>}
-      {!!(props.stage === 1) &&
-        <div className={css.RepoAdderStage1}>
-          <div className={css.RepoAdderStage1Top}>
+      {!!(store.stage > 0) &&
+        <div className={css.activeStage}>
+          <div className={css.activeStageTop}>
             <input
-              value={props.inputValue}
+              value={store.inputValue}
               placeholder="owner/repo"
-              className={css.RepoAdderSearch}
-              onChange={props.updateInputValue}
+              className={css.search}
+              onChange={store.updateInputValue}
             />
-            <div className={css.RepoAdderSubmitButton} onClick={props.stageUp}>
+            <div className={css.submitButton} onClick={store.stageUp}>
               GET STATS
             </div>
           </div>
-          <div className={css.RepoAdderStage1Bottom} />
+          <div className={css.activeStageBottom}>
+            <Choose>
+              <When condition={store.stage === 1}>
+                <p>
+                  Type a userName/repoName above to
+                  add it to the list.
+                </p>
+              </When>
+              <When condition={store.stage === 2}>
+                <p>
+                  Searching for that repo...
+                </p>
+              </When>
+              <When condition={store.stage === 3}>
+                <p>
+                  That search value is invalid.
+                </p>
+              </When>
+              <When condition={store.stage === 4}>
+                <p>
+                  Uh oh, we're not watching that repo.
+                </p>
+                <a onClick={store.submitNewRepo}>
+                  <h3>
+                    Add it now?
+                  </h3>
+                </a>
+              </When>
+            </Choose>
+          </div>
         </div>}
     </div>
   )
-}
+})
 
-export default class extends Component {
-  state = {
-    stage: 0,
-    inputValue: ""
-  };
-
-  setStage = x => this.setState(({ stage }) => ({ stage: x }));
-  setInputValue = v => this.setState({ inputValue: v });
-
-  updateInputValue = ({ target: { value } }) => {
-    this.setInputValue(value);
-  };
-
-  addRepo = async ({ owner, repo }) => {
-    this.setStage(0);
-    this.setInputValue("");
-    fetch(`http://localhost:3987/api/v1/repo/${this.state.inputValue}`)
-      .then(res => res.json())
-      .then(data => {
-        return this.props.addRepo(data);
-      }).catch(console.error);
-  };
-
-  stageUp = () => {
-    if (this.state.stage === 0) {
-      this.setStage(1);
-    } else if (this.state.stage === 1) {
-      this.addRepo({ owner: "a", repo: "b" });
-    }
-  };
-
-  render({ props, state } = this) {
-    console.log({ props, state });
-    const { stageUp, updateInputValue } = this;
-    return RepoAdder({ ...props, ...state, stageUp, updateInputValue })
-  }
-}
-
-// export default connect()
+export default withStore(RepoAdderStore)(RepoAdder)

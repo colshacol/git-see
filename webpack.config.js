@@ -57,7 +57,9 @@ module.exports = {
   resolve: {
     extensions: ['.js', '.pcss'],
     alias: {
-      '@shared': './client/shared'
+      '@api': path.resolve(__dirname, './client/api'),
+      '@comps': path.resolve(__dirname, './client/comps'),
+      '@utils': path.resolve(__dirname, './client/utils')
     },
     modules: [paths.modules]
   }

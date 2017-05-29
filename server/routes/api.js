@@ -2,14 +2,14 @@ const fs = require('fs');
 const router = require("express").Router();
 
 router.get("/v1/repo/:owner/:repo", (req, res) => {
-  console.log('\n\n\nPARAMS\n\n\n', req.params.owner, req.params.repo)
+  console.log('\n\n\nPARAMS: ', req.params.owner, req.params.repo)
   fs.readFile('repos.json', 'utf8', (err, data) => {
     if (err) { console.log(err) }
     else {
       const repo = JSON.parse(data).find(repo => {
-        return repo.repo === req.params.owner + '/' + req.params.repo;
+        return (repo.repo === req.params.owner + '/' + req.params.repo);
       });
-      console.log(repo)
+      if (!repo) { return res.send({ found: false, _id: false }) }
       repo.currentStats = repo.history[repo.history.length -1];
       const dayHistory = repo.history.slice(repo.history.length - 2);
       const weekHistory = repo.history.slice(repo.history.length - 7);
@@ -23,7 +23,7 @@ router.get("/v1/repo/:owner/:repo", (req, res) => {
           forks: forkAverage,
           watchers: watcherAverage
       }
-      
+
       if (repo.history.length < 1) {
         repo.yesterday = repo.pastWeek = repo.pastMonth = {
           stars: 'n/a',
@@ -74,9 +74,6 @@ router.get("/v1/repo/:owner/:repo", (req, res) => {
           watchers: monthHistory[29].watchers - monthHistory[0].watchers,
         }
       }
-
-
-
       res.send(repo)
     }
   })

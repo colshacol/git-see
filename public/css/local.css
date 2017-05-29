@@ -17,19 +17,14 @@
           justify-content: center;
   margin: 24px 16px;
   overflow: hidden;
+  color: #b0b5ba;
+}
+.client-comps-RepoList-styles-___RepoAdder-plusIcon_local {
+  font-size: 48px;
   color: #e0e0e0;
   cursor: pointer;
 }
-.client-comps-RepoList-styles-___RepoAdder-RepoAdder_local p {
-  margin-top: 8px;
-  font-weight: 700;
-  font-size: 18px;
-}
-.client-comps-RepoList-styles-___RepoAdder-RepoAdderPlusIcon_local {
-  font-size: 48px;
-  color: #e0e0e0;
-}
-.client-comps-RepoList-styles-___RepoAdder-RepoAdderStage0_local {
+.client-comps-RepoList-styles-___RepoAdder-stage0_local {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -41,14 +36,30 @@
       -ms-flex-align: center;
           align-items: center;
 }
-.client-comps-RepoList-styles-___RepoAdder-RepoAdderStage1_local {
+.,
+.client-comps-RepoList-styles-___RepoAdder-stage0_local p {
+  margin-top: 16px;
+  font-weight: 700;
+  font-size: 18px;
+}
+.client-comps-RepoList-styles-___RepoAdder-activeStage_local {
   width: 100%;
   height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
-.client-comps-RepoList-styles-___RepoAdder-RepoAdderStage1Top_local {
+.client-comps-RepoList-styles-___RepoAdder-activeStage_local p {
+  margin-bottom: 16px;
+}
+.client-comps-RepoList-styles-___RepoAdder-activeStageTop_local {
   background: #4fc08d;
   color: #4fc08d;
-  padding: 12px 0 4px;
+  padding: 12px 0 55px;
   height: 74px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -61,7 +72,7 @@
       -ms-flex-align: center;
           align-items: center;
 }
-.client-comps-RepoList-styles-___RepoAdder-RepoAdderSearch_local {
+.client-comps-RepoList-styles-___RepoAdder-search_local {
   background: none;
   outline: none;
   border: none;
@@ -70,17 +81,32 @@
   font-family: 'Montserrat', sans-serif;
   text-align: center;
 }
-.client-comps-RepoList-styles-___RepoAdder-RepoAdderSearch_local::-webkit-input-placeholder {
+.client-comps-RepoList-styles-___RepoAdder-search_local::-webkit-input-placeholder {
   font-family: 'Montserrat', sans-serif;
   color: #000;
   opacity: 0.25;
   font-size: 24px;
 }
-.client-comps-RepoList-styles-___RepoAdder-RepoAdderStage1Bottom_local {
+.client-comps-RepoList-styles-___RepoAdder-activeStageBottom_local {
+  padding: 16px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   background: #fff;
   height: 100%;
+  font-weight: 400;
 }
-.client-comps-RepoList-styles-___RepoAdder-RepoAdderSubmitButton_local {
+.client-comps-RepoList-styles-___RepoAdder-submitButton_local {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -131,6 +157,23 @@
   opacity: 0.5;
   color: #fff;
 }
+.client-comps-Repo-styles-___StatRow-RepoRowTimeframe_local {
+  width: 100%;
+}
+.client-comps-Repo-styles-___StatRow-RepoRowStat_local {
+  width: 160px;
+  text-align: center;
+}
+.client-comps-Repo-styles-___StatRow-RepoStatRow_local {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  padding: 4px 0;
+}
 .client-comps-Repo-styles-___index-Repo_local {
 /*width: ?;*/
   max-width: 340px;
@@ -164,18 +207,9 @@
 }
 .client-comps-Repo-styles-___index-RepoTitleGithubIcon_local {
   margin-right: 8px;
+  color: #fff;
   position: relative;
   top: 2px;
-}
-.client-comps-Repo-styles-___index-RepoStatRow_local {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  padding: 4px 0;
 }
 .client-comps-Repo-styles-___index-RepoTitle_local {
   font-weight: 500;
@@ -204,13 +238,11 @@
   opacity: 0.25;
   font-style: italic;
 }
-.client-comps-Repo-styles-___index-RepoRowLabel_local,
-.client-comps-Repo-styles-___index-RepoRowStat_local {
+.client-comps-Repo-styles-___index-RepoRowLabel_local {
   width: 160px;
   text-align: center;
 }
-.client-comps-Repo-styles-___index-RepoTimeframeLabel_local,
-.client-comps-Repo-styles-___index-RepoRowTimeframe_local {
+.client-comps-Repo-styles-___index-RepoTimeframeLabel_local {
   width: 100%;
 }
 .client-comps-Repo-styles-___index-RepoViewSwapper_local p {
@@ -246,6 +278,41 @@
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
 }
+.client-styles-___AppFrame-Navbar_local {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+@media screen and (min-width: 1200px) {
+  .client-styles-___AppFrame-Navbar_local {
+    padding-left: calc((100% - 1200px) / 2 + 24px);
+    padding-right: calc((100% - 1200px) / 2 + 24px);
+  }
+}
+.client-styles-___AppFrame-NavbarLogo_local {
+  font-size: 20px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  color: #fff;
+  background: #4fc08d;
+  height: 120%;
+  padding: 0 16px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  box-shadow: 0 2px 20px rgba(0,0,0,0.5), 0 1px 0px rgba(0,0,0,0.08);
+  border-bottom: 3px solid #3db37d;
+}
 html,
 body,
 div,
@@ -280,40 +347,15 @@ nav {
   padding: 0px 24px;
   box-shadow: 0 2px 20px rgba(0,0,0,0.1), 0 1px 0px rgba(0,0,0,0.03);
 }
-.client-styles-___index-Navbar_local {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+input {
+  letter-spacing: 0.5px;
 }
-@media screen and (min-width: 1200px) {
-  .client-styles-___index-Navbar_local {
-    padding-left: calc((100% - 1200px) / 2 + 24px);
-    padding-right: calc((100% - 1200px) / 2 + 24px);
-  }
+input::-webkit-input-placeholder {
+  letter-spacing: 0.5;
 }
-.client-styles-___index-NavbarLogo_local {
-  font-size: 20px;
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 500;
-  color: #fff;
-  background: #4fc08d;
-  height: 120%;
-  padding: 0 16px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  box-shadow: 0 2px 20px rgba(0,0,0,0.5), 0 1px 0px rgba(0,0,0,0.08);
-  border-bottom: 3px solid #3db37d;
+a {
+  color: #e96900;
+  cursor: pointer;
 }
 
 /*# sourceMappingURL=local.css.map*/

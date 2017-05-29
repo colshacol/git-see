@@ -1,10 +1,11 @@
 import React from 'react'
+import css from './styles/AppFrame.styl'
 
 export default function AppFrame(props) {
   return (
-    <div className='AppFrame'>
-      <nav className='Navbar'>
-        <p className='NavbarLogo'>gitsee</p>
+    <div className={css.AppFrame}>
+      <nav className={css.Navbar}>
+        <p className={css.NavbarLogo}>gitsee</p>
       </nav>
       {props.children}
     </div>
