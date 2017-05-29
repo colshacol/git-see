@@ -1,9 +1,11 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
+
 import RepoAdder from './RepoAdder'
 import Repo from '../Repo'
 import './styles/index.css'
 
-export default class RepoList extends Component {
+class RepoList extends Component {
   state = {
     repos: []
   };
@@ -30,3 +32,7 @@ export default class RepoList extends Component {
     )
   }
 }
+
+export default connect(store => ({
+  repoList: store.repoList,
+}))(RepoList)

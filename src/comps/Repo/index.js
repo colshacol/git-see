@@ -16,11 +16,12 @@ export default class Repo extends Component {
 
   render({ props, state } = this) {
     console.log('repo props: ', Object.keys(props));
-    const { currentStats } = props;
-    const { yesterday } = props;
-    const { pastWeek } = props;
-    const { pastMonth } = props;
-    const { averages } = props;
+    const { currentStats,
+      yesterday,
+      pastWeek,
+      pastMonth,
+      averages
+    } = props;
     return (
       <div className="Repo">
         <div className="RepoTop">
