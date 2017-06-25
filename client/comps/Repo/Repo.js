@@ -1,24 +1,22 @@
 import React, { Component } from "react"
 import { Icon } from "react-fa"
 
-import withStore from '@utils/withStore'
-import { RepoStore } from './stores'
 import CurrentStats from "./CurrentStats"
 import StatRow from './StatRow'
 import css from "./styles/index.styl"
 
 // TODO: Remove Repo-- prefixes.
-const Repo = ({ props, store }) => {
+const Repo = (props) => {
   return (
     <div className={css.Repo}>
       <div className={css.RepoTop}>
         <h2 className={css.RepoTitle}>
-          <a href={store.url}>
+          <a href={props.url}>
             <Icon name='github' className={css.RepoTitleGithubIcon}/>
           </a>
-          {store.owner} / <span>{store.repoName}</span>
+          {props.owner} / <span>{props.repoName}</span>
         </h2>
-        <CurrentStats {...store.currentStats} />
+        <CurrentStats {...props.currentStats} />
       </div>
       <div className={css.RepoBottom}>
         <div className={css.RepoColumnLabels}>
@@ -27,10 +25,10 @@ const Repo = ({ props, store }) => {
           <Icon name="code-fork" className={css.RepoRowLabel} />
           <Icon name="eye" className={css.RepoRowLabel} />
         </div>
-        <StatRow timeFrame="Average Day" {...store.averages} />
-        <StatRow timeFrame="Yesterday" {...store.yesterday} />
-        <StatRow timeFrame="Past Week" {...store.pastWeek} />
-        <StatRow timeFrame="Past Month" {...store.pastMonth} />
+        <StatRow timeFrame="Average Day" {...props.averages} />
+        <StatRow timeFrame="Yesterday" {...props.yesterday} />
+        <StatRow timeFrame="Past Week" {...props.pastWeek} />
+        <StatRow timeFrame="Past Month" {...props.pastMonth} />
         <div className={css.RepoViewSwapper}>
           <p>Switch to chart view</p>
         </div>
@@ -39,4 +37,4 @@ const Repo = ({ props, store }) => {
   )
 }
 
-export default withStore(RepoStore)(Repo)
+export default Repo

@@ -1,17 +1,16 @@
-import { createStore, combineReducers } from 'redux'
-import { repoListReducer, repoAdderReducer } from './reducers'
+import { createStore, combineReducers, applyMiddleware } from 'redux'
+import thunk from 'redux-thunk'
+
+import repoListReducer from './repoList'
 
 export const initialState = {
     repoList: [],
-    repoAdder: {
-      stage: 0,
-      inputValue: ''
-    }
 }
 
-const reducers = combineReducers({
-  repoList: repoListReducer,
-  repoAdder: repoAdderReducer,
-})
+// const reducers = combineReducers({
+//   repoList: repoListReducer,
+// })
 
-export default createStore(reducers, initialState)
+const middleware = applyMiddleware(thunk)
+
+export default createStore(repoListReducer, initialState, middleware)

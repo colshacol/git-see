@@ -59,7 +59,11 @@ module.exports = {
     alias: {
       '@api': path.resolve(__dirname, './client/api'),
       '@comps': path.resolve(__dirname, './client/comps'),
-      '@utils': path.resolve(__dirname, './client/utils')
+      '@utils': path.resolve(__dirname, './client/utils'),
+      '@store': path.resolve(__dirname, './client/store'),
+      '@scenes': path.resolve(__dirname, './client/scenes'),
+      '@styles': path.resolve(__dirname, './client/styles'),
+      '@api': path.resolve(__dirname, './client/api'),
     },
     modules: [paths.modules]
   }

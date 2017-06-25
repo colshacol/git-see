@@ -1,4 +1,23 @@
 import RepoList from './RepoList'
-export RepoAdder from './RepoAdder'
+import { connect } from 'react-redux'
+import * as repoListActions from '../../store/repoList/actions'
 
-export default RepoList
+const props = (state) => {
+  return {
+    repoList: state.repoList,
+    repoAdder: state.repoAdder,
+  }
+}
+
+const actions = (dispatch) => {
+  return {
+    addRepoToList(repo) {
+      dispatch(repoListActions.addRepoSuccess(repo))
+    }
+  }
+}
+
+export default connect(
+  props,
+  actions
+)(RepoList)
